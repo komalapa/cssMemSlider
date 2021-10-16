@@ -1,6 +1,8 @@
 
 :root{
     --slider-width: 60vw;
+    --slider-text-width: 40vw;
+    
     --slider-height: calc((2 / 3) * var(--slider-width));
     --background-dark: darkslategrey;
     --btn-size: 2vw;
@@ -16,20 +18,24 @@ body, html{
 *{
     box-sizing: border-box;
 }
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .slider-wrp{
     width: 60vw;
     overflow-x: hidden;
     margin: 0 auto;
 }
 .imgs-wrp{
-    border-radius: 2vw;
     display: flex;
     margin-left: (-0 * var(--slider-width));
     transition: margin-left 0.5s ease-in;
 }
 
 .imgs-wrp .img{
-    
+    border-radius: 2vw;
     margin: 0 auto;
     width: var(--slider-width);
     height: var(--slider-height);
@@ -71,10 +77,18 @@ body, html{
 #slider-btn-4:checked ~ .imgs-wrp{
     margin-left: calc((-3) * var(--slider-width));
 }
+
+.controls-line{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 .controls{
     display: flex;
     gap:1vw;
-
+    /* float: right; */
 }
 .slider-btn-lbl{
     display: block;
@@ -88,15 +102,46 @@ body, html{
 .slider-btn-lbl:hover{
     opacity: 1;
 }
-#slider-btn-1:checked ~ .controls label:nth-child(1){
+#slider-btn-1:checked ~ .controls-line label:nth-child(1){
     background-color: var(--background-dark);
 }
-#slider-btn-2:checked ~ .controls label:nth-child(2){
+#slider-btn-2:checked ~ .controls-line label:nth-child(2){
     background-color: var(--background-dark);
 }
-#slider-btn-3:checked ~ .controls label:nth-child(3){
+#slider-btn-3:checked ~ .controls-line label:nth-child(3){
     background-color: var(--background-dark);
 }
-#slider-btn-4:checked ~ .controls label:nth-child(4){
+#slider-btn-4:checked ~ .controls-line label:nth-child(4){
     background-color: var(--background-dark);
+}
+
+.txts-slider{
+    overflow: hidden;
+    width: var(--slider-text-width);
+    height: 50px;
+}
+.txts-wrp{
+    display: flex;
+    flex-direction: row-reverse;
+    transition: margin-right 0.5s ease-in;
+}
+.txt{
+    width: var(--slider-text-width);
+    height: 3em;
+    flex-shrink: 0;
+    font-size: 1.5em;
+    line-height: 3em;
+    color: white
+}
+#slider-btn-1:checked ~ .controls-line .txts-wrp{
+    margin-right: 0;
+}
+#slider-btn-2:checked ~ .controls-line .txts-wrp{
+    margin-right: calc((-1) * var(--slider-text-width));
+}
+#slider-btn-3:checked ~ .controls-line .txts-wrp{
+    margin-right: calc((-2) * var(--slider-text-width));
+}
+#slider-btn-4:checked ~ .controls-line .txts-wrp{
+    margin-right: calc((-3) * var(--slider-text-width));
 }
