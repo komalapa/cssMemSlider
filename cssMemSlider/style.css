@@ -2,7 +2,6 @@
 :root{
     --slider-width: 60vw;
     --slider-text-width: 40vw;
-    
     --slider-height: calc((2 / 3) * var(--slider-width));
     --background-dark: darkslategrey;
     --btn-size: 1.5vw;
@@ -83,7 +82,7 @@ body{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 
 .controls{
@@ -136,6 +135,7 @@ body{
     overflow: hidden;
     width: var(--slider-text-width);
 }
+
 .txts-wrp{
     display: flex;
     flex-direction: row-reverse;
@@ -160,12 +160,18 @@ body{
     margin-right: calc((-3) * var(--slider-text-width));
 }
 
+@media (max-width:1000px){
+    .txt{
+        font-size: 1em;
+    }
+}
+
 @media (max-width: 640px) {
     :root{
         --slider-width: 90vw;
         --slider-text-width: 90vw;
         --slider-height: calc((2 / 3) * var(--slider-width));
-        --btn-size: 5vw;          
+        --btn-size: 3vw;          
     }
     .controls-line{
         flex-direction: column;
@@ -174,6 +180,10 @@ body{
     .controls{
         align-self: center;
     }
+}
 
-    
+@media (max-width: 400px){
+    :root{
+        --btn-size: 5vw;          
+    }
 }
