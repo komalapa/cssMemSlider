@@ -5,7 +5,7 @@
     
     --slider-height: calc((2 / 3) * var(--slider-width));
     --background-dark: darkslategrey;
-    --btn-size: 2vw;
+    --btn-size: 1.5vw;
 }
 
 body, html{
@@ -88,10 +88,21 @@ body{
 
 .controls{
     display: flex;
-    gap:1vw;
+    gap:0;
     /* float: right; */
 }
+
 .slider-btn-lbl{
+    padding: 1vw 0.5vw;
+    cursor: pointer;
+}
+.slider-btn-lbl:last-child{
+    padding-right: 0;
+}
+.slider-btn-lbl:first-child{
+    padding-left: 1vw;
+}
+.slider-btn-lbl span{
     position: relative;;
     display: block;
     width: var(--btn-size);
@@ -99,35 +110,25 @@ body{
     border-radius: 50%;
     background-color: white;
     border: 2px solid white;
-    opacity: 0.8;
-    cursor: pointer;
+    opacity: 0.7;
 }
-/* .slider-btn-lbl:after{
-    position: absolute;
-    content: '';
-    top:-25%;
-    left:-25%;
-    display: block;
-    width: 150%;
-    height: 150%;
-} */
-.slider-btn-lbl:hover{
+.slider-btn-lbl:hover span{
     opacity: 1;
 }
 
-.slider-btn-lbl:active{
+.slider-btn-lbl:active span{
     transform: scale(0.9) translateY(2px);
 }
-#slider-btn-1:checked ~ .controls-line label:nth-child(1){
+#slider-btn-1:checked ~ .controls-line label:nth-child(1) span{
     background-color: var(--background-dark);
 }
-#slider-btn-2:checked ~ .controls-line label:nth-child(2){
+#slider-btn-2:checked ~ .controls-line label:nth-child(2) span{
     background-color: var(--background-dark);
 }
-#slider-btn-3:checked ~ .controls-line label:nth-child(3){
+#slider-btn-3:checked ~ .controls-line label:nth-child(3) span{
     background-color: var(--background-dark);
 }
-#slider-btn-4:checked ~ .controls-line label:nth-child(4){
+#slider-btn-4:checked ~ .controls-line label:nth-child(4) span{
     background-color: var(--background-dark);
 }
 
